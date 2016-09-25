@@ -11,7 +11,7 @@ using System.Web.Http;
 
 namespace ProductManagerApp.Service
 {
-    public class ProductService : ApiController, IProductService
+    public class ProductServiceController : ApiController, IProductService
     {
         public DataRow GetById(int id)
         {

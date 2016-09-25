@@ -13,7 +13,7 @@ namespace ProductManagerApp.Tests
         public void ProductTest()
         {
             Product product = new Product{ Name = "White Swan - test", Photo = "C:/Images/Books/BlackSwan.jpg", Price = 24.2, LastUpdated = DateTime.Now };
-            ProductService service = new ProductService();
+            ProductServiceController service = new ProductServiceController();
 
             service.Create(product);
             DataTable dt = service.Search("White Swan - test", 0, 50);
