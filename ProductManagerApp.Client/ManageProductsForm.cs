@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.Configuration;
+using System.Globalization;
 
 namespace ProductManagerApp.Client
 {
@@ -32,14 +33,14 @@ namespace ProductManagerApp.Client
 
         private void buttonCreate_Click(object sender, EventArgs e)
         {
-            AddProduct(this.textBoxName.Text, this.textBoxPhoto.Text, double.Parse(this.textBoxPrice.Text));
+            AddProduct(this.textBoxName.Text, this.textBoxPhoto.Text, double.Parse(this.textBoxPrice.Text.Replace(',', '.'), CultureInfo.InvariantCulture));
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
             if (dataGridViewProducts.SelectedRows.Count == 1)
             {
-                UpdateProduct(Int32.Parse(dataGridViewProducts.SelectedRows[0].Cells[0].Value.ToString()), textBoxName.Text, this.textBoxPhoto.Text, double.Parse(this.textBoxPrice.Text));
+                UpdateProduct(Int32.Parse(dataGridViewProducts.SelectedRows[0].Cells[0].Value.ToString()), textBoxName.Text, this.textBoxPhoto.Text, double.Parse(this.textBoxPrice.Text.Replace(',', '.'), CultureInfo.InvariantCulture));
             }
         }
 
@@ -53,10 +54,12 @@ namespace ProductManagerApp.Client
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
-            if (textBoxSearchName.Text != string.Empty && textBoxPriceFrom.Text != string.Empty && textBoxPriceTo.Text != string.Empty)
+            if (textBoxPriceFrom.Text != string.Empty && textBoxPriceTo.Text != string.Empty)
             {
-                SearchProduct(textBoxSearchName.Text, double.Parse(textBoxPriceFrom.Text), double.Parse(textBoxPriceTo.Text));
+                SearchProduct(textBoxSearchName.Text, double.Parse(textBoxPriceFrom.Text.Replace(',','.'), CultureInfo.InvariantCulture), double.Parse(textBoxPriceTo.Text.Replace(',', '.'), CultureInfo.InvariantCulture));
             }
+            else
+                MessageBox.Show("You must enter the price range", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void buttonShowAll_Click(object sender, EventArgs e)
@@ -132,6 +135,9 @@ namespace ProductManagerApp.Client
         {
             using (var client = new HttpClient())
             {
+                if (name == string.Empty)
+                    name = "return_all";
+
                 using (var response = await client.GetAsync(string.Format("{0}/{1}/{2}/{3}", uri, name, priceFrom, priceTo)))
                 {
                     if (response.IsSuccessStatusCode)
@@ -142,6 +148,25 @@ namespace ProductManagerApp.Client
 
                     }
                 }
+            }
+        }
+
+        private void dataGridViewProducts_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (dataGridViewProducts.SelectedRows.Count == 1)
+            {
+                textBoxName.Text = dataGridViewProducts.SelectedRows[0].Cells[1].Value.ToString();
+                textBoxPhoto.Text = dataGridViewProducts.SelectedRows[0].Cells[2].Value.ToString();
+                textBoxPrice.Text = dataGridViewProducts.SelectedRows[0].Cells[3].Value.ToString();
+            }
+        }
+
+        private void buttonBrowse_Click(object sender, EventArgs e)
+        {
+            DialogResult result = openFileDialogPhoto.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                textBoxPhoto.Text = openFileDialogPhoto.FileName;
             }
         }
     }

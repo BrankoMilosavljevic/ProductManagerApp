@@ -72,7 +72,7 @@ namespace ProductManagerApp.Service
         {
             using (var context = new ProductContext())
             {
-                List<Product> products = context.Products.Where(p => ((name == string.Empty || p.Name == name) && p.Price >= priceFrom && p.Price <= priceTo)).ToList();
+                List<Product> products = context.Products.Where(p => ((name == "return_all" || p.Name == name) && p.Price >= priceFrom && p.Price <= priceTo)).ToList();
                 return products.ToDataTable<Product>();
             }
         }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBoxSearch = new System.Windows.Forms.GroupBox();
+            this.buttonShowAll = new System.Windows.Forms.Button();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.textBoxPriceTo = new System.Windows.Forms.TextBox();
             this.labelPriceTo = new System.Windows.Forms.Label();
@@ -48,7 +49,7 @@
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.buttonCreate = new System.Windows.Forms.Button();
-            this.buttonShowAll = new System.Windows.Forms.Button();
+            this.openFileDialogPhoto = new System.Windows.Forms.OpenFileDialog();
             this.groupBoxSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProducts)).BeginInit();
             this.groupBoxManage.SuspendLayout();
@@ -66,14 +67,24 @@
             this.groupBoxSearch.Controls.Add(this.labelSearchName);
             this.groupBoxSearch.Location = new System.Drawing.Point(13, 13);
             this.groupBoxSearch.Name = "groupBoxSearch";
-            this.groupBoxSearch.Size = new System.Drawing.Size(966, 45);
+            this.groupBoxSearch.Size = new System.Drawing.Size(944, 45);
             this.groupBoxSearch.TabIndex = 0;
             this.groupBoxSearch.TabStop = false;
             this.groupBoxSearch.Text = "Search";
             // 
+            // buttonShowAll
+            // 
+            this.buttonShowAll.Location = new System.Drawing.Point(817, 15);
+            this.buttonShowAll.Name = "buttonShowAll";
+            this.buttonShowAll.Size = new System.Drawing.Size(116, 23);
+            this.buttonShowAll.TabIndex = 7;
+            this.buttonShowAll.Text = "Show all";
+            this.buttonShowAll.UseVisualStyleBackColor = true;
+            this.buttonShowAll.Click += new System.EventHandler(this.buttonShowAll_Click);
+            // 
             // buttonSearch
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(723, 17);
+            this.buttonSearch.Location = new System.Drawing.Point(695, 15);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(116, 23);
             this.buttonSearch.TabIndex = 6;
@@ -133,9 +144,11 @@
             // 
             this.dataGridViewProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewProducts.Location = new System.Drawing.Point(13, 79);
+            this.dataGridViewProducts.MultiSelect = false;
             this.dataGridViewProducts.Name = "dataGridViewProducts";
-            this.dataGridViewProducts.Size = new System.Drawing.Size(601, 324);
+            this.dataGridViewProducts.Size = new System.Drawing.Size(544, 324);
             this.dataGridViewProducts.TabIndex = 1;
+            this.dataGridViewProducts.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewProducts_RowHeaderMouseClick);
             // 
             // groupBoxManage
             // 
@@ -149,7 +162,7 @@
             this.groupBoxManage.Controls.Add(this.buttonDelete);
             this.groupBoxManage.Controls.Add(this.buttonUpdate);
             this.groupBoxManage.Controls.Add(this.buttonCreate);
-            this.groupBoxManage.Location = new System.Drawing.Point(623, 79);
+            this.groupBoxManage.Location = new System.Drawing.Point(590, 79);
             this.groupBoxManage.Name = "groupBoxManage";
             this.groupBoxManage.Size = new System.Drawing.Size(356, 324);
             this.groupBoxManage.TabIndex = 2;
@@ -164,6 +177,7 @@
             this.buttonBrowse.TabIndex = 13;
             this.buttonBrowse.Text = "Browse";
             this.buttonBrowse.UseVisualStyleBackColor = true;
+            this.buttonBrowse.Click += new System.EventHandler(this.buttonBrowse_Click);
             // 
             // textBoxPhoto
             // 
@@ -243,21 +257,15 @@
             this.buttonCreate.UseVisualStyleBackColor = true;
             this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
-            // buttonShowAll
+            // openFileDialogPhoto
             // 
-            this.buttonShowAll.Location = new System.Drawing.Point(844, 17);
-            this.buttonShowAll.Name = "buttonShowAll";
-            this.buttonShowAll.Size = new System.Drawing.Size(116, 23);
-            this.buttonShowAll.TabIndex = 7;
-            this.buttonShowAll.Text = "Show all";
-            this.buttonShowAll.UseVisualStyleBackColor = true;
-            this.buttonShowAll.Click += new System.EventHandler(this.buttonShowAll_Click);
+            this.openFileDialogPhoto.FileName = "openFileDialog1";
             // 
             // ManageProductsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(991, 410);
+            this.ClientSize = new System.Drawing.Size(967, 410);
             this.Controls.Add(this.groupBoxManage);
             this.Controls.Add(this.dataGridViewProducts);
             this.Controls.Add(this.groupBoxSearch);
@@ -295,6 +303,7 @@
         private System.Windows.Forms.Button buttonBrowse;
         private System.Windows.Forms.TextBox textBoxPhoto;
         private System.Windows.Forms.Button buttonShowAll;
+        private System.Windows.Forms.OpenFileDialog openFileDialogPhoto;
     }
 }
 
