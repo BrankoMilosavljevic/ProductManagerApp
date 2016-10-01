@@ -31,16 +31,22 @@ namespace ProductManagerApp.Service
             }
         }
 
-        public bool Create(Product Product)
+        public bool PostProduct(Product Product)
         {
             using (var context = new ProductContext())
             {
-                context.Products.Add(Product);
+                if (Product.Id == 0)
+                    context.Products.Add(Product);
+                else
+                {
+                    context.Products.Attach(Product);
+                    context.Entry(Product).State = EntityState.Modified;
+                }
                 return context.SaveChanges() > 0;
             }
         }
 
-        public bool Update(Product Product)
+        public bool PutProduct(Product Product)
         {
             using (var context = new ProductContext())
             {
@@ -60,14 +66,13 @@ namespace ProductManagerApp.Service
             }
         }
 
-        public DataTable Search(string name, double? priceFrom, double? priceTo)
+        [Route("api/ProductService/{name}/{priceFrom}/{priceTo}")]
+        [HttpGet]
+        public DataTable GetAll(string name, double priceFrom, double priceTo)
         {
             using (var context = new ProductContext())
             {
-                List<Product> products = context.Products.Where(p => ((name == string.Empty || p.Name == name) 
-                                                                        && (priceFrom == null || p.Price >= priceFrom) 
-                                                                        && (priceTo == null || p.Price <= priceTo)
-                                                                        )).ToList();
+                List<Product> products = context.Products.Where(p => ((name == string.Empty || p.Name == name) && p.Price >= priceFrom && p.Price <= priceTo)).ToList();
                 return products.ToDataTable<Product>();
             }
         }

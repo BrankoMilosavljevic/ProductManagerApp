@@ -59,6 +59,11 @@ namespace ProductManagerApp.Client
             }
         }
 
+        private void buttonShowAll_Click(object sender, EventArgs e)
+        {
+            GetAllProducts();
+        }
+
         private async void GetAllProducts()
         {
             using (var client = new HttpClient())
@@ -139,6 +144,5 @@ namespace ProductManagerApp.Client
                 }
             }
         }
-
     }
 }

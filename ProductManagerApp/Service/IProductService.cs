@@ -12,9 +12,9 @@ namespace ProductManagerApp.Service
     {
         DataRow GetById(int Id);
         DataTable GetAll();
-        bool Create(Product product);
-        bool Update(Product product);
+        bool PostProduct(Product product);
+        bool PutProduct(Product product);
         bool Delete(int id);
-        DataTable Search(string name, double? priceFrom, double? priceTo);
+        DataTable GetAll(string name, double priceFrom, double priceTo);
     }
 }
