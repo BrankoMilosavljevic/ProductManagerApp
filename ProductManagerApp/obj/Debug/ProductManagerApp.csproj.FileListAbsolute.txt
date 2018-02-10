@@ -111,3 +111,5 @@ C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerA
 C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp\bin\ProductManagerApp.Data.pdb
 C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp\bin\ProductManagerApp.Data.dll.config
 C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp\bin\ProductManagerApp.Model.pdb
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp\bin\AutoMapper.dll
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp\bin\AutoMapper.xml

@@ -74,3 +74,5 @@ C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerA
 C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Tests\bin\Debug\ProductManagerApp.Model.pdb
 C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Tests\bin\Debug\ProductManagerApp.Data.pdb
 C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Tests\bin\Debug\ProductManagerApp.Data.dll.config
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Tests\bin\Debug\AutoMapper.dll
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Tests\bin\Debug\AutoMapper.xml

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using AutoMapper;
 using ProductManagerApp.Contract;
 using ProductManagerApp.Data;
 using ProductManagerApp.Model;
@@ -22,47 +23,25 @@ namespace ProductManagerApp.Controllers
             var product = _productRepository.Items
                 .FirstOrDefault(i => i.Id == id);
 
-            return new ProductContract
-            {
-                    Id = product.Id,
-                    Name = product.Name,
-                    Photo = product.Photo,
-                    Price = product.Price,
-                    LastUpdated = product.LastUpdated
-            };
+            return Mapper.Map<ProductContract>(product);
         }
 
         [Route("api/ProductService/all")]
         [HttpGet]
         public List<ProductContract> GetAll()
         {
-             return _productRepository.Items
-                 .Select(p => new ProductContract
-                 {
-                     Id = p.Id,
-                     Name = p.Name,
-                     Photo = p.Photo,
-                     Price = p.Price,
-                     LastUpdated = p.LastUpdated
-                })
-                .ToList();
+            var products = _productRepository.Items.ToList();
+            return Mapper.Map<List<ProductContract>>(products);
         }
 
         [Route("api/ProductService/{name}/{priceFrom}/{priceTo}")]
         [HttpGet]
         public List<ProductContract> GetAllByFilter(string name, double priceFrom, double priceTo)
         {
-             return _productRepository.Items
-                 .Where(p => p.FiltersSatisfied(name, priceFrom, priceTo))
-                 .Select(p => new ProductContract
-                 {
-                     Id = p.Id,
-                     Name = p.Name,
-                     Photo = p.Photo,
-                     Price = p.Price,
-                     LastUpdated = p.LastUpdated
-                 })
-                 .ToList();
+            var products = _productRepository.Items
+                .Where(p => p.FiltersSatisfied(name, priceFrom, priceTo))
+                .ToList();
+            return Mapper.Map<List<ProductContract>>(products);
         }
 
         public void UpdateProduct(ProductContract productContract)

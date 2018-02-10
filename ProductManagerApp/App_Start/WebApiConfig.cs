@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
+﻿using System.Web.Http;
+using ProductManagerApp.Contract;
+using ProductManagerApp.Model;
 
 namespace ProductManagerApp
 {
@@ -19,6 +18,11 @@ namespace ProductManagerApp
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            AutoMapper.Mapper.Initialize(mapperConfig =>
+            {
+                mapperConfig.CreateMap<ProductContract, Product>();
+            });
         }
     }
 }
