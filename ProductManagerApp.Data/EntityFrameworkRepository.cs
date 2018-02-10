@@ -2,7 +2,7 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using ProductManagerApp.Model;
+using ProductManagerApp.Domain;
 
 namespace ProductManagerApp.Data
 {

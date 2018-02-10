@@ -4,7 +4,7 @@ using System.Web.Http;
 using AutoMapper;
 using ProductManagerApp.Contract;
 using ProductManagerApp.Data;
-using ProductManagerApp.Model;
+using ProductManagerApp.Domain;
 
 namespace ProductManagerApp.Controllers
 {
@@ -39,7 +39,7 @@ namespace ProductManagerApp.Controllers
         public List<ProductContract> GetAllByFilter(string name, double priceFrom, double priceTo)
         {
             var products = _productRepository.Items
-                .Where(p => p.FiltersSatisfied(name, priceFrom, priceTo))
+                .WhereFilterIsSatisfied(name, priceFrom, priceTo)
                 .ToList();
             return Mapper.Map<List<ProductContract>>(products);
         }

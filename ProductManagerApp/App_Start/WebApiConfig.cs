@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 using ProductManagerApp.Contract;
-using ProductManagerApp.Model;
+using ProductManagerApp.Domain;
 
 namespace ProductManagerApp
 {

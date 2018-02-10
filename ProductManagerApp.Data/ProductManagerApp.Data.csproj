@@ -55,14 +55,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ProductManagerApp.Model\ProductManagerApp.Model.csproj">
-      <Project>{8163FBC4-AC4B-49A0-92F7-0513B9FB0E4D}</Project>
-      <Name>ProductManagerApp.Model</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProductManagerApp.Domain\ProductManagerApp.Domain.csproj">
+      <Project>{39e8efc2-6843-4847-bd8c-b6cf0b10261f}</Project>
+      <Name>ProductManagerApp.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

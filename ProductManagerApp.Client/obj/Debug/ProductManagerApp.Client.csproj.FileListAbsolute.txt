@@ -70,10 +70,10 @@ C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerA
 C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\obj\Debug\ProductManagerApp.Client.csproj.CoreCompileInputs.cache
 C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\obj\Debug\ProductManagerApp.Client.exe
 C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\obj\Debug\ProductManagerApp.Client.pdb
-C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\ProductManagerApp.Model.dll
 C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\ProductManagerApp.Data.dll
-C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\ProductManagerApp.Model.pdb
 C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\ProductManagerApp.Data.pdb
 C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\ProductManagerApp.Data.dll.config
 C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\AutoMapper.dll
 C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\AutoMapper.xml
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\ProductManagerApp.Domain.dll
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\ProductManagerApp.Domain.pdb

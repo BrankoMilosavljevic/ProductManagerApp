@@ -1,5 +1,5 @@
 ﻿using System;
-using ProductManagerApp.Model;
+using ProductManagerApp.Domain;
 
 namespace ProductManagerApp.Contract
 {

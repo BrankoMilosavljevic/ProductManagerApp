@@ -1,0 +1,5 @@
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Domain\bin\Debug\ProductManagerApp.Domain.dll
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Domain\bin\Debug\ProductManagerApp.Domain.pdb
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Domain\obj\Debug\ProductManagerApp.Domain.csproj.CoreCompileInputs.cache
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Domain\obj\Debug\ProductManagerApp.Domain.dll
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Domain\obj\Debug\ProductManagerApp.Domain.pdb

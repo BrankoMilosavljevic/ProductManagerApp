@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ProductManagerApp.Model
+namespace ProductManagerApp.Domain
 {
     public class Product : Entity
     {
@@ -8,10 +8,5 @@ namespace ProductManagerApp.Model
         public string Photo { get; set; }
         public double Price { get; set; }
         public DateTime LastUpdated { get; set; }
-
-        public bool FiltersSatisfied(string name, double priceFrom, double priceTo)
-        {
-            return ((name == "return_all" || Name == name) && Price >= priceFrom && Price <= priceTo);
-        }
     }
 }

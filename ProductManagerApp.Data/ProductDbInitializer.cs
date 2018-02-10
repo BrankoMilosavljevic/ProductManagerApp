@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using ProductManagerApp.Model;
+using ProductManagerApp.Domain;
 
 namespace ProductManagerApp.Data
 {

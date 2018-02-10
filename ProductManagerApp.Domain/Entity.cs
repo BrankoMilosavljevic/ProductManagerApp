@@ -1,4 +1,4 @@
-﻿namespace ProductManagerApp.Model
+﻿namespace ProductManagerApp.Domain
 {
     public abstract class Entity
     {

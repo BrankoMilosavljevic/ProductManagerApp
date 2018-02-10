@@ -69,10 +69,6 @@
       <Project>{B5E88E76-D88F-44F4-BC21-8387EEBEACC2}</Project>
       <Name>ProductManagerApp.Client</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ProductManagerApp.Model\ProductManagerApp.Model.csproj">
-      <Project>{8163fbc4-ac4b-49a0-92f7-0513b9fb0e4d}</Project>
-      <Name>ProductManagerApp.Model</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ProductManagerApp\ProductManagerApp.csproj">
       <Project>{FE88677E-3E60-48DC-9712-1535EA4D66BA}</Project>
       <Name>ProductManagerApp</Name>
