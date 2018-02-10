@@ -17,7 +17,7 @@ namespace ProductManagerApp.Client
 {
     public partial class ManageProductsForm : Form
     {
-        string uri = string.Empty;
+        string _uri = string.Empty;
 
         public ManageProductsForm()
         {
@@ -27,7 +27,7 @@ namespace ProductManagerApp.Client
 
         private void InitializeControl()
         {
-            uri = ConfigurationManager.AppSettings["webAPI"].ToString();
+            _uri = ConfigurationManager.AppSettings["webAPI"];
             GetAllProducts();
         }
 
@@ -71,13 +71,13 @@ namespace ProductManagerApp.Client
         {
             using (var client = new HttpClient())
             {
-                using (var response = await client.GetAsync(uri))
+                using (var response = await client.GetAsync(FormUrl("all")))
                 {
                     if (response.IsSuccessStatusCode)
                     {
                         var productJsonString = await response.Content.ReadAsStringAsync();
 
-                        dataGridViewProducts.DataSource = JsonConvert.DeserializeObject<Product[]>(productJsonString).ToList();
+                        dataGridViewProducts.DataSource = JsonConvert.DeserializeObject<List<Product>>(productJsonString);
 
                     }
                 }
@@ -96,12 +96,10 @@ namespace ProductManagerApp.Client
             {
                 var serializedProduct = JsonConvert.SerializeObject(p);
                 var content = new StringContent(serializedProduct, Encoding.UTF8, "application/json");
-                var result = await client.PostAsync(uri, content);
+                var result = await client.PostAsync(_uri, content);
             }
             GetAllProducts();
         }
-
-
 
         private async void UpdateProduct(int id, string name, string path, double price)
         {
@@ -116,17 +114,16 @@ namespace ProductManagerApp.Client
             {
                 var serializedProduct = JsonConvert.SerializeObject(p);
                 var content = new StringContent(serializedProduct, Encoding.UTF8, "application/json");
-                var result = await client.PutAsync(uri, content);
+                var result = await client.PutAsync(_uri, content);
             }
             GetAllProducts();
         }
-
 
         private async void DeleteProduct(int id)
         {
             using (var client = new HttpClient())
             {
-                var result = await client.DeleteAsync(String.Format("{0}/{1}", uri, id));
+                var result = await client.DeleteAsync(FormUrl($"{id}"));
             }
             GetAllProducts();
         }
@@ -138,14 +135,13 @@ namespace ProductManagerApp.Client
                 if (name == string.Empty)
                     name = "return_all";
 
-                using (var response = await client.GetAsync(string.Format("{0}/{1}/{2}/{3}", uri, name, priceFrom, priceTo)))
+                using (var response = await client.GetAsync($"{_uri}/{name}/{priceFrom}/{priceTo}"))
                 {
                     if (response.IsSuccessStatusCode)
                     {
                         var productJsonString = await response.Content.ReadAsStringAsync();
 
-                        dataGridViewProducts.DataSource = JsonConvert.DeserializeObject<Product[]>(productJsonString).ToList();
-
+                        dataGridViewProducts.DataSource = JsonConvert.DeserializeObject<List<Product>>(productJsonString);
                     }
                 }
             }
@@ -168,6 +164,11 @@ namespace ProductManagerApp.Client
             {
                 textBoxPhoto.Text = openFileDialogPhoto.FileName;
             }
+        }
+
+        private string FormUrl(string route)
+        {
+            return $"{_uri}/{route}";
         }
     }
 }

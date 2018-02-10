@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ProductManagerApp.Models;
-using ProductManagerApp.Service;
 using System.Data;
+using System.Linq;
+using ProductManagerApp.Controllers;
 
 namespace ProductManagerApp.Tests
 {
@@ -13,20 +15,20 @@ namespace ProductManagerApp.Tests
         public void ProductTest()
         {
             Product product = new Product{ Id = 0, Name = "White Swan - test", Photo = "C:/Images/Books/BlackSwan.jpg", Price = 24.2, LastUpdated = DateTime.Now };
-            ProductServiceController service = new ProductServiceController();
+            ProductController controller = new ProductController();
 
-            service.PostProduct(product);
-            DataTable dt = service.GetAll("White Swan - test", 0, 50);
-            Assert.AreEqual(dt.Rows.Count, 1);
+            controller.PostProduct(product);
+            List<Product> products = controller.GetAllByFilter("White Swan - test", 0, 50);
+            Assert.AreEqual(products.Count, 1);
 
             product.Name = "White Swan - test (renamed)";
-            service.PutProduct(product);
-            dt = service.GetAll("White Swan - test (renamed)", 0, 50);
-            Assert.AreEqual(dt.Rows.Count, 1);
+            controller.PutProduct(product);
+            products = controller.GetAllByFilter("White Swan - test (renamed)", 0, 50);
+            Assert.AreEqual(products.Count, 1);
 
-            service.Delete(Int32.Parse(dt.Rows[0]["Id"].ToString()));
-            dt = service.GetAll("White Swan - test (renamed)", 0, 50);
-            Assert.AreEqual(dt.Rows.Count, 0);
+            controller.Delete(Int32.Parse(products.First().Id.ToString()));
+            products = controller.GetAllByFilter("White Swan - test (renamed)", 0, 50);
+            Assert.AreEqual(products.Count, 0);
 
         }
     }

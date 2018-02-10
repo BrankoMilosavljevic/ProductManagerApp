@@ -33,3 +33,40 @@ C:\Users\BrankoM\Documents\Visual Studio 2015\Projects\ProductManagerApp\Product
 C:\Users\BrankoM\Documents\Visual Studio 2015\Projects\ProductManagerApp\ProductManagerApp.Client\obj\Debug\ProductManagerApp.Client.csproj.GenerateResource.Cache
 C:\Users\BrankoM\Documents\Visual Studio 2015\Projects\ProductManagerApp\ProductManagerApp.Client\obj\Debug\ProductManagerApp.Client.exe
 C:\Users\BrankoM\Documents\Visual Studio 2015\Projects\ProductManagerApp\ProductManagerApp.Client\obj\Debug\ProductManagerApp.Client.pdb
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\roslyn\csc.exe
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\roslyn\System.Collections.Immutable.dll
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\roslyn\System.Reflection.Metadata.dll
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\roslyn\vbc.exe
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\roslyn\VBCSCompiler.exe
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\roslyn\VBCSCompiler.exe.config
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\ProductManagerApp.Client.exe.config
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\ProductManagerApp.Client.exe
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\ProductManagerApp.Client.pdb
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\EntityFramework.dll
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\Newtonsoft.Json.dll
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\ProductManagerApp.dll
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\System.Web.Http.dll
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\System.Web.Http.WebHost.dll
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\ProductManagerApp.pdb
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\ProductManagerApp.dll.config
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\EntityFramework.xml
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\Newtonsoft.Json.xml
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\System.Web.Http.xml
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\bin\Debug\System.Web.Http.WebHost.xml
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\obj\Debug\ProductManagerApp.Client.csprojResolveAssemblyReference.cache
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\obj\Debug\ProductManagerApp.Client.ManageProductsForm.resources
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\obj\Debug\ProductManagerApp.Client.Properties.Resources.resources
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\obj\Debug\ProductManagerApp.Client.csproj.GenerateResource.Cache
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\obj\Debug\ProductManagerApp.Client.csproj.CoreCompileInputs.cache
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\obj\Debug\ProductManagerApp.Client.exe
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Client\obj\Debug\ProductManagerApp.Client.pdb
