@@ -10,6 +10,7 @@ namespace ProductManagerApp.Data
         IQueryable<T> Items { get; }
         IQueryable<T> ItemsIncluding(params Expression<Func<T, object>>[] paths);
         void Add(T item);
+        void Delete(T item);
         void Delete(int id);
         T FindById(int id);
     }

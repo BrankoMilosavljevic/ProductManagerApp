@@ -1,17 +1,12 @@
-﻿using ProductManagerApp.Client.ClientModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.Configuration;
 using System.Globalization;
+using ProductManagerApp.Client.Contract;
 
 namespace ProductManagerApp.Client
 {
@@ -77,7 +72,7 @@ namespace ProductManagerApp.Client
                     {
                         var productJsonString = await response.Content.ReadAsStringAsync();
 
-                        dataGridViewProducts.DataSource = JsonConvert.DeserializeObject<List<Product>>(productJsonString);
+                        dataGridViewProducts.DataSource = JsonConvert.DeserializeObject<List<ProductContract>>(productJsonString);
 
                     }
                 }
@@ -86,11 +81,13 @@ namespace ProductManagerApp.Client
 
         private async void AddProduct(string name, string path, double price)
         {
-            Product p = new Product();
-            p.Name = name;
-            p.Photo = path;
-            p.Price = price;
-            p.LastUpdated = DateTime.Now;
+            ProductContract p = new ProductContract
+            {
+                Name = name,
+                Photo = path,
+                Price = price,
+                LastUpdated = DateTime.Now
+            };
 
             using (var client = new HttpClient())
             {
@@ -103,12 +100,14 @@ namespace ProductManagerApp.Client
 
         private async void UpdateProduct(int id, string name, string path, double price)
         {
-            Product p = new Product();
-            p.Id = id;
-            p.Name = name;
-            p.Photo = path;
-            p.Price = price;
-            p.LastUpdated = DateTime.Now;
+            ProductContract p = new ProductContract
+            {
+                Id = id,
+                Name = name,
+                Photo = path,
+                Price = price,
+                LastUpdated = DateTime.Now
+            };
 
             using (var client = new HttpClient())
             {
@@ -141,7 +140,7 @@ namespace ProductManagerApp.Client
                     {
                         var productJsonString = await response.Content.ReadAsStringAsync();
 
-                        dataGridViewProducts.DataSource = JsonConvert.DeserializeObject<List<Product>>(productJsonString);
+                        dataGridViewProducts.DataSource = JsonConvert.DeserializeObject<List<ProductContract>>(productJsonString);
                     }
                 }
             }

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Web.Http;
+using ProductManagerApp.Contract;
 using ProductManagerApp.Data;
 using ProductManagerApp.Model;
 
@@ -9,67 +9,77 @@ namespace ProductManagerApp.Controllers
 {
     public class ProductController : ApiController
     {
+        private readonly IRepository<Product> _productRepository;
+        public ProductController()
+        {
+            _productRepository = new EntityFrameworkRepository<Product>(new ProductContext());
+        }
+
         [Route("api/ProductService/{id}")]
         [HttpGet]
-        public Product GetById(int id)
+        public ProductContract GetById(int id)
         {
-            using (var context = new ProductContext())
+            var product = _productRepository.Items
+                .FirstOrDefault(i => i.Id == id);
+
+            return new ProductContract
             {
-                return context.Products.FirstOrDefault(i => i.Id == id);
-            }
+                    Id = product.Id,
+                    Name = product.Name,
+                    Photo = product.Photo,
+                    Price = product.Price,
+                    LastUpdated = product.LastUpdated
+            };
         }
 
         [Route("api/ProductService/all")]
         [HttpGet]
-        public List<Product> GetAll()
+        public List<ProductContract> GetAll()
         {
-            using (var context = new ProductContext())
-            {
-                return context.Products.ToList();
-            }
+             return _productRepository.Items
+                 .Select(p => new ProductContract
+                 {
+                     Id = p.Id,
+                     Name = p.Name,
+                     Photo = p.Photo,
+                     Price = p.Price,
+                     LastUpdated = p.LastUpdated
+                })
+                .ToList();
         }
 
         [Route("api/ProductService/{name}/{priceFrom}/{priceTo}")]
         [HttpGet]
-        public List<Product> GetAllByFilter(string name, double priceFrom, double priceTo)
+        public List<ProductContract> GetAllByFilter(string name, double priceFrom, double priceTo)
         {
-            using (var context = new ProductContext())
-            {
-                return context.Products.Where(p => ((name == "return_all" || p.Name == name) && p.Price >= priceFrom && p.Price <= priceTo)).ToList();
-            }
+             return _productRepository.Items
+                 .Where(p => p.FiltersSatisfied(name, priceFrom, priceTo))
+                 .Select(p => new ProductContract
+                 {
+                     Id = p.Id,
+                     Name = p.Name,
+                     Photo = p.Photo,
+                     Price = p.Price,
+                     LastUpdated = p.LastUpdated
+                 })
+                 .ToList();
         }
 
-        public void PostProduct(Product product)
-        {
-            using (var context = new ProductContext())
-            {
-                if (product.Id == 0)
-                    context.Products.Add(product);
-                else
-                {
-                    context.Products.Attach(product);
-                    context.Entry(product).State = EntityState.Modified;
-                }
-            }
+        public void UpdateProduct(ProductContract productContract)
+        {  
+            Product product = _productRepository.FindById(productContract.Id);
+            productContract.UpdateDomainModel(product);
         }
 
-        public void PutProduct(Product product)
+        public void AddProduct(ProductContract productContract)
         {
-            using (var context = new ProductContext())
-            {
-                context.Products.Attach(product);
-                context.Entry(product).State = EntityState.Modified;
-            }
+            _productRepository.Add(productContract.ToDomainModel());
         }
 
-        public bool Delete(int id)
+        public void Delete(int id)
         {
-            using (var context = new ProductContext())
-            {
-                var product = context.Products.Find(id);
-                context.Products.Remove(product);
-                return context.SaveChanges() > 0;
-            }
+            Product product = _productRepository.FindById(id);
+            _productRepository.Delete(product);
         }
     }
 }

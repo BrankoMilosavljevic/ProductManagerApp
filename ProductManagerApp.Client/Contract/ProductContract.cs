@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace ProductManagerApp.Client.ClientModel
+namespace ProductManagerApp.Client.Contract
 {
-    public class Product
+    public class ProductContract
     {
         public int Id { get; set; }
         public string Name { get; set; }

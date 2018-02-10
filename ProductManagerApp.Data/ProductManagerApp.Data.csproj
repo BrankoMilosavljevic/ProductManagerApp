@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityFrameworkRepository.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="ProductContext.cs" />
     <Compile Include="ProductDbInitializer.cs" />
