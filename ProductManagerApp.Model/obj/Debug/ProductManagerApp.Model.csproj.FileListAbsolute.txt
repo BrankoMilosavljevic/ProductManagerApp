@@ -1,0 +1,6 @@
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Model\bin\Debug\ProductManagerApp.Model.dll
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Model\bin\Debug\ProductManagerApp.Model.pdb
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Model\obj\Debug\ProductManagerApp.Model.csprojResolveAssemblyReference.cache
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Model\obj\Debug\ProductManagerApp.Model.csproj.CoreCompileInputs.cache
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Model\obj\Debug\ProductManagerApp.Model.dll
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Model\obj\Debug\ProductManagerApp.Model.pdb

@@ -2,8 +2,8 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Http;
-using ProductManagerApp.DAL;
-using ProductManagerApp.Models;
+using ProductManagerApp.Data;
+using ProductManagerApp.Model;
 
 namespace ProductManagerApp.Controllers
 {
@@ -39,26 +39,26 @@ namespace ProductManagerApp.Controllers
             }
         }
 
-        public void PostProduct(Product Product)
+        public void PostProduct(Product product)
         {
             using (var context = new ProductContext())
             {
-                if (Product.Id == 0)
-                    context.Products.Add(Product);
+                if (product.Id == 0)
+                    context.Products.Add(product);
                 else
                 {
-                    context.Products.Attach(Product);
-                    context.Entry(Product).State = EntityState.Modified;
+                    context.Products.Attach(product);
+                    context.Entry(product).State = EntityState.Modified;
                 }
             }
         }
 
-        public void PutProduct(Product Product)
+        public void PutProduct(Product product)
         {
             using (var context = new ProductContext())
             {
-                context.Products.Attach(Product);
-                context.Entry(Product).State = EntityState.Modified;
+                context.Products.Attach(product);
+                context.Entry(product).State = EntityState.Modified;
             }
         }
 

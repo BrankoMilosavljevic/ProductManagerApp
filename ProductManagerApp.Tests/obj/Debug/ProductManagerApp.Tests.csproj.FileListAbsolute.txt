@@ -66,3 +66,11 @@ C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerA
 C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Tests\obj\Debug\ProductManagerApp.Tests.csproj.CoreCompileInputs.cache
 C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Tests\obj\Debug\ProductManagerApp.Tests.dll
 C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Tests\obj\Debug\ProductManagerApp.Tests.pdb
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Tests\bin\Debug\ProductManagerApp.Client.exe
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Tests\bin\Debug\ProductManagerApp.Client.pdb
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Tests\bin\Debug\ProductManagerApp.Client.exe.config
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Tests\bin\Debug\ProductManagerApp.Model.dll
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Tests\bin\Debug\ProductManagerApp.Data.dll
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Tests\bin\Debug\ProductManagerApp.Model.pdb
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Tests\bin\Debug\ProductManagerApp.Data.pdb
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Tests\bin\Debug\ProductManagerApp.Data.dll.config

@@ -1,0 +1,13 @@
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Data\bin\Debug\ProductManagerApp.Data.dll.config
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Data\bin\Debug\ProductManagerApp.Data.dll
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Data\bin\Debug\ProductManagerApp.Data.pdb
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Data\bin\Debug\EntityFramework.dll
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Data\bin\Debug\ProductManagerApp.Model.dll
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Data\bin\Debug\ProductManagerApp.Model.pdb
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Data\bin\Debug\EntityFramework.xml
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Data\obj\Debug\ProductManagerApp.Data.csprojResolveAssemblyReference.cache
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Data\obj\Debug\ProductManagerApp.Data.csproj.CoreCompileInputs.cache
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Data\obj\Debug\ProductManagerApp.Data.dll
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Data\obj\Debug\ProductManagerApp.Data.pdb
