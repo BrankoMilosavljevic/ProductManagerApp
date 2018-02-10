@@ -43,7 +43,7 @@ namespace ProductManagerApp.Data
             DbSet.Add(item);
         }
 
-        public virtual void Delete(T item)
+        public void Delete(T item)
         {
             if (item == null)
             {
@@ -53,7 +53,7 @@ namespace ProductManagerApp.Data
             DbSet.Remove(item);
         }
 
-        public virtual void Delete(int id)
+        public void Delete(int id)
         {
             var item = FindById(id);
             if (item != null)

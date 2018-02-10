@@ -1,18 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Text;
 using System.Windows.Forms;
-using Newtonsoft.Json;
-using System.Configuration;
 using System.Globalization;
-using ProductManagerApp.Client.Contract;
 
 namespace ProductManagerApp.Client
 {
     public partial class ManageProductsForm : Form
     {
-        string _uri = string.Empty;
+        private ProductHttpClient _productHttpClient;
 
         public ManageProductsForm()
         {
@@ -22,152 +16,75 @@ namespace ProductManagerApp.Client
 
         private void InitializeControl()
         {
-            _uri = ConfigurationManager.AppSettings["webAPI"];
-            GetAllProducts();
+            _productHttpClient = new ProductHttpClient();
+            RefreshView();
         }
 
-        private void buttonCreate_Click(object sender, EventArgs e)
+        private async void buttonCreate_Click(object sender, EventArgs e)
         {
-            AddProduct(this.textBoxName.Text, this.textBoxPhoto.Text, double.Parse(this.textBoxPrice.Text.Replace(',', '.'), CultureInfo.InvariantCulture));
+            await _productHttpClient.AddProduct(textBoxName.Text, 
+                                                textBoxPhoto.Text, 
+                                                double.Parse(textBoxPrice.Text.Replace(',', '.'), CultureInfo.InvariantCulture));
         }
 
-        private void buttonUpdate_Click(object sender, EventArgs e)
+        private async void buttonUpdate_Click(object sender, EventArgs e)
         {
-            if (dataGridViewProducts.SelectedRows.Count == 1)
+            if (dataGridViewProducts.SelectedRows.Count != 1)
+                return;
+
+            await _productHttpClient.UpdateProduct(Int32.Parse(dataGridViewProducts.SelectedRows[0].Cells[0].Value.ToString()), 
+                                                       textBoxName.Text, 
+                                                       textBoxPhoto.Text, 
+                                                       double.Parse(textBoxPrice.Text.Replace(',', '.'), CultureInfo.InvariantCulture));
+        }
+
+        private async void buttonDelete_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewProducts.SelectedRows.Count != 1)
+                return;
+
+            await _productHttpClient.DeleteProduct(Int32.Parse(dataGridViewProducts.SelectedRows[0].Cells[0].Value.ToString()));
+        }
+
+        private async void buttonSearch_Click(object sender, EventArgs e)
+        {
+            if (textBoxPriceFrom.Text == string.Empty || textBoxPriceTo.Text == string.Empty)
             {
-                UpdateProduct(Int32.Parse(dataGridViewProducts.SelectedRows[0].Cells[0].Value.ToString()), textBoxName.Text, this.textBoxPhoto.Text, double.Parse(this.textBoxPrice.Text.Replace(',', '.'), CultureInfo.InvariantCulture));
-            }
-        }
-
-        private void buttonDelete_Click(object sender, EventArgs e)
-        {
-            if (dataGridViewProducts.SelectedRows.Count == 1)
-            {
-                DeleteProduct(Int32.Parse(dataGridViewProducts.SelectedRows[0].Cells[0].Value.ToString()));
-            }
-        }
-
-        private void buttonSearch_Click(object sender, EventArgs e)
-        {
-            if (textBoxPriceFrom.Text != string.Empty && textBoxPriceTo.Text != string.Empty)
-            {
-                SearchProduct(textBoxSearchName.Text, double.Parse(textBoxPriceFrom.Text.Replace(',','.'), CultureInfo.InvariantCulture), double.Parse(textBoxPriceTo.Text.Replace(',', '.'), CultureInfo.InvariantCulture));
-            }
-            else
                 MessageBox.Show("You must enter the price range", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
-
-        private void buttonShowAll_Click(object sender, EventArgs e)
-        {
-            GetAllProducts();
-        }
-
-        private async void GetAllProducts()
-        {
-            using (var client = new HttpClient())
-            {
-                using (var response = await client.GetAsync(FormUrl("all")))
-                {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var productJsonString = await response.Content.ReadAsStringAsync();
-
-                        dataGridViewProducts.DataSource = JsonConvert.DeserializeObject<List<ProductContract>>(productJsonString);
-
-                    }
-                }
+                return;
             }
+                
+            await _productHttpClient.SearchProduct(textBoxSearchName.Text, 
+                                                       double.Parse(textBoxPriceFrom.Text.Replace(',','.'), CultureInfo.InvariantCulture), 
+                                                       double.Parse(textBoxPriceTo.Text.Replace(',', '.'), CultureInfo.InvariantCulture));       
         }
 
-        private async void AddProduct(string name, string path, double price)
+        private async void buttonShowAll_Click(object sender, EventArgs e)
         {
-            ProductContract p = new ProductContract
-            {
-                Name = name,
-                Photo = path,
-                Price = price,
-                LastUpdated = DateTime.Now
-            };
-
-            using (var client = new HttpClient())
-            {
-                var serializedProduct = JsonConvert.SerializeObject(p);
-                var content = new StringContent(serializedProduct, Encoding.UTF8, "application/json");
-                var result = await client.PostAsync(_uri, content);
-            }
-            GetAllProducts();
+            await _productHttpClient.GetAllProducts();
         }
 
-        private async void UpdateProduct(int id, string name, string path, double price)
+        private async void RefreshView()
         {
-            ProductContract p = new ProductContract
-            {
-                Id = id,
-                Name = name,
-                Photo = path,
-                Price = price,
-                LastUpdated = DateTime.Now
-            };
-
-            using (var client = new HttpClient())
-            {
-                var serializedProduct = JsonConvert.SerializeObject(p);
-                var content = new StringContent(serializedProduct, Encoding.UTF8, "application/json");
-                var result = await client.PutAsync(_uri, content);
-            }
-            GetAllProducts();
-        }
-
-        private async void DeleteProduct(int id)
-        {
-            using (var client = new HttpClient())
-            {
-                var result = await client.DeleteAsync(FormUrl($"{id}"));
-            }
-            GetAllProducts();
-        }
-
-        private async void SearchProduct(string name, double priceFrom, double priceTo)
-        {
-            using (var client = new HttpClient())
-            {
-                if (name == string.Empty)
-                    name = "return_all";
-
-                using (var response = await client.GetAsync($"{_uri}/{name}/{priceFrom}/{priceTo}"))
-                {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var productJsonString = await response.Content.ReadAsStringAsync();
-
-                        dataGridViewProducts.DataSource = JsonConvert.DeserializeObject<List<ProductContract>>(productJsonString);
-                    }
-                }
-            }
+            dataGridViewProducts.DataSource = await _productHttpClient.GetAllProducts();
         }
 
         private void dataGridViewProducts_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (dataGridViewProducts.SelectedRows.Count == 1)
-            {
-                textBoxName.Text = dataGridViewProducts.SelectedRows[0].Cells[1].Value.ToString();
-                textBoxPhoto.Text = dataGridViewProducts.SelectedRows[0].Cells[2].Value.ToString();
-                textBoxPrice.Text = dataGridViewProducts.SelectedRows[0].Cells[3].Value.ToString();
-            }
+            if (dataGridViewProducts.SelectedRows.Count != 1)
+                return;
+
+            textBoxName.Text = dataGridViewProducts.SelectedRows[0].Cells[1].Value.ToString();
+            textBoxPhoto.Text = dataGridViewProducts.SelectedRows[0].Cells[2].Value.ToString();
+            textBoxPrice.Text = dataGridViewProducts.SelectedRows[0].Cells[3].Value.ToString();
         }
 
         private void buttonBrowse_Click(object sender, EventArgs e)
         {
             DialogResult result = openFileDialogPhoto.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                textBoxPhoto.Text = openFileDialogPhoto.FileName;
-            }
-        }
 
-        private string FormUrl(string route)
-        {
-            return $"{_uri}/{route}";
+            if (result == DialogResult.OK)
+                textBoxPhoto.Text = openFileDialogPhoto.FileName;
         }
     }
 }

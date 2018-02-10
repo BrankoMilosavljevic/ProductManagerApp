@@ -67,6 +67,7 @@
     <Compile Include="ManageProductsForm.Designer.cs">
       <DependentUpon>ManageProductsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductHttpClient.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ManageProductsForm.resx">
