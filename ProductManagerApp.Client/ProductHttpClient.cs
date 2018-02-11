@@ -64,7 +64,7 @@ namespace ProductManagerApp.Client
             {
                 var serializedProduct = JsonConvert.SerializeObject(p);
                 var content = new StringContent(serializedProduct, Encoding.UTF8, "application/json");
-                await client.PutAsync(_baseUri, content);
+                await client.PostAsync(_baseUri, content);
             }
         }
 

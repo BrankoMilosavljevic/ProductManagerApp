@@ -133,6 +133,10 @@
       <Project>{39e8efc2-6843-4847-bd8c-b6cf0b10261f}</Project>
       <Name>ProductManagerApp.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ProductManagerApp.Services\ProductManagerApp.Services.csproj">
+      <Project>{E7D0EB81-46BE-4994-9A39-9B5811B3F89A}</Project>
+      <Name>ProductManagerApp.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

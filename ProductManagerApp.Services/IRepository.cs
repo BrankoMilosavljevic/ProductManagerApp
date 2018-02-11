@@ -3,7 +3,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using ProductManagerApp.Domain;
 
-namespace ProductManagerApp.Data
+namespace ProductManagerApp.Services
 {
     public interface IRepository<T> where T : Entity
     {

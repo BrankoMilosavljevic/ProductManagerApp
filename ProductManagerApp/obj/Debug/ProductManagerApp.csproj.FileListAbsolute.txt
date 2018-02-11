@@ -113,3 +113,5 @@ C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerA
 C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp\bin\AutoMapper.xml
 C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp\bin\ProductManagerApp.Domain.dll
 C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp\bin\ProductManagerApp.Domain.pdb
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp\bin\ProductManagerApp.Services.dll
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp\bin\ProductManagerApp.Services.pdb

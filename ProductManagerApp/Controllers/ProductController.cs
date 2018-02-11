@@ -5,15 +5,19 @@ using AutoMapper;
 using ProductManagerApp.Contract;
 using ProductManagerApp.Data;
 using ProductManagerApp.Domain;
+using ProductManagerApp.Services;
 
 namespace ProductManagerApp.Controllers
 {
     public class ProductController : ApiController
     {
         private readonly IRepository<Product> _productRepository;
+        private readonly IUnitOfWork _unitOfWork;
         public ProductController()
         {
-            _productRepository = new EntityFrameworkRepository<Product>(new ProductContext());
+            var context = new ProductManagerContext();
+            _productRepository = new EntityFrameworkRepository<Product>(context);
+            _unitOfWork = new ProductManagerUnitOfWork(context);
         }
 
         [Route("api/ProductService/{id}")]
@@ -44,21 +48,39 @@ namespace ProductManagerApp.Controllers
             return Mapper.Map<List<ProductContract>>(products);
         }
 
-        public void UpdateProduct(ProductContract productContract)
-        {  
-            Product product = _productRepository.FindById(productContract.Id);
-            productContract.UpdateDomainModel(product);
-        }
-
-        public void AddProduct(ProductContract productContract)
+        [Route("api/ProductService")]
+        [HttpPost]
+        public void Post(ProductContract productContract)
         {
-            _productRepository.Add(productContract.ToDomainModel());
+            if (productContract.Id == 0)
+            {
+                AddProduct(productContract);
+                return;
+            }
+
+            UpdateProduct(productContract);    
         }
 
+        [Route("api/ProductService/{id}")]
+        [HttpDelete]
         public void Delete(int id)
         {
             Product product = _productRepository.FindById(id);
             _productRepository.Delete(product);
+            _unitOfWork.SaveChanges();
+        }
+
+        private void UpdateProduct(ProductContract productContract)
+        {  
+            Product product = _productRepository.FindById(productContract.Id);
+            productContract.UpdateDomainModel(product);
+            _unitOfWork.SaveChanges();
+        }
+
+        private void AddProduct(ProductContract productContract)
+        {
+            _productRepository.Add(productContract.ToDomainModel());
+            _unitOfWork.SaveChanges();
         }
     }
 }

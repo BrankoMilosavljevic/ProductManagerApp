@@ -49,9 +49,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityFrameworkRepository.cs" />
-    <Compile Include="IRepository.cs" />
-    <Compile Include="ProductContext.cs" />
+    <Compile Include="ProductManagerContext.cs" />
     <Compile Include="ProductDbInitializer.cs" />
+    <Compile Include="ProductManagerUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +62,10 @@
     <ProjectReference Include="..\ProductManagerApp.Domain\ProductManagerApp.Domain.csproj">
       <Project>{39e8efc2-6843-4847-bd8c-b6cf0b10261f}</Project>
       <Name>ProductManagerApp.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProductManagerApp.Services\ProductManagerApp.Services.csproj">
+      <Project>{E7D0EB81-46BE-4994-9A39-9B5811B3F89A}</Project>
+      <Name>ProductManagerApp.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

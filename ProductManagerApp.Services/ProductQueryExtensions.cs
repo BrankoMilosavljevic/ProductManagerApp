@@ -1,6 +1,7 @@
 ﻿using System.Linq;
+using ProductManagerApp.Domain;
 
-namespace ProductManagerApp.Domain
+namespace ProductManagerApp.Services
 {
     public static class ProductQueryExtensions
     {

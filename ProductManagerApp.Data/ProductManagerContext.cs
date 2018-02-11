@@ -3,12 +3,12 @@ using ProductManagerApp.Domain;
 
 namespace ProductManagerApp.Data
 {
-    public class ProductContext : DbContext
+    public class ProductManagerContext : DbContext
     {
-        public ProductContext()
+        public ProductManagerContext()
             : base("ProductContext.DbConnection")
         {
-            Database.SetInitializer<ProductContext>(new ProductDbInitializer());
+            Database.SetInitializer<ProductManagerContext>(new ProductDbInitializer());
             Configuration.ProxyCreationEnabled = false;
         }
 

@@ -1,4 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ProductManagerApp.Contract;
+using ProductManagerApp.Controllers;
 
 namespace ProductManagerApp.Tests
 {
@@ -8,21 +13,21 @@ namespace ProductManagerApp.Tests
         [TestMethod]
         public void ProductTest()
         {
-            //Product product = new Product { Id = 0, Name = "White Swan - test", Photo = "C:/Images/Books/BlackSwan.jpg", Price = 24.2, LastUpdated = DateTime.Now };
-            //ProductController controller = new ProductController();
+            ProductContract productContract = new ProductContract { Id = 0, Name = "White Swan - test", Photo = "C:/Images/Books/BlackSwan.jpg", Price = 24.2, LastUpdated = DateTime.Now };
+            ProductController controller = new ProductController();
 
-            //controller.PostProduct(product);
-            //List<Product> products = controller.GetAllByFilter("White Swan - test", 0, 50);
-            //Assert.AreEqual(products.Count, 1);
+            controller.Post(productContract);
+            List<ProductContract> productContracts = controller.GetAllByFilter("White Swan - test", 0, 50);
+            Assert.AreEqual(productContracts.Count, 1);
 
-            //product.Name = "White Swan - test (renamed)";
-            //controller.PutProduct(product);
-            //products = controller.GetAllByFilter("White Swan - test (renamed)", 0, 50);
-            //Assert.AreEqual(products.Count, 1);
+            productContract.Name = "White Swan - test (renamed)";
+            controller.Post(productContract);
+            productContracts = controller.GetAllByFilter("White Swan - test (renamed)", 0, 50);
+            Assert.AreEqual(productContracts.Count, 1);
 
-            //controller.Delete(Int32.Parse(products.First().Id.ToString()));
-            //products = controller.GetAllByFilter("White Swan - test (renamed)", 0, 50);
-            //Assert.AreEqual(products.Count, 0);
+            controller.Delete(Int32.Parse(productContracts.First().Id.ToString()));
+            productContracts = controller.GetAllByFilter("White Swan - test (renamed)", 0, 50);
+            Assert.AreEqual(productContracts.Count, 0);
 
         }
     }

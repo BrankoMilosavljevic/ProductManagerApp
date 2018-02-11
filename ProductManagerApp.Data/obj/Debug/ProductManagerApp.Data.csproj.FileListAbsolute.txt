@@ -11,3 +11,5 @@ C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerA
 C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Data\obj\Debug\ProductManagerApp.Data.pdb
 C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Data\bin\Debug\ProductManagerApp.Domain.dll
 C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Data\bin\Debug\ProductManagerApp.Domain.pdb
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Data\bin\Debug\ProductManagerApp.Services.dll
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Data\bin\Debug\ProductManagerApp.Services.pdb
