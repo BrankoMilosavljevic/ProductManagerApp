@@ -78,3 +78,9 @@ C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerA
 C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Tests\bin\Debug\ProductManagerApp.Domain.pdb
 C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Tests\bin\Debug\ProductManagerApp.Services.dll
 C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Tests\bin\Debug\ProductManagerApp.Services.pdb
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Tests\bin\Debug\nunit.framework.dll
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Tests\bin\Debug\nunit.framework.xml
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Tests\bin\Debug\FluentAssertions.dll
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Tests\bin\Debug\System.ValueTuple.dll
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Tests\bin\Debug\FluentAssertions.pdb
+C:\Users\branko.milosavljevic\Documents\GitHub\ProductManagerApp\ProductManagerApp.Tests\bin\Debug\FluentAssertions.xml
