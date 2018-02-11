@@ -31,7 +31,7 @@ namespace ProductManagerApp.Client
 
         private async void buttonUpdate_Click(object sender, EventArgs e)
         {
-            if (dataGridViewProducts.SelectedRows.Count != 1)
+            if (SingleItemIsNotSelected())
                 return;
 
             await _productHttpClient.UpdateProduct(Int32.Parse(dataGridViewProducts.SelectedRows[0].Cells[0].Value.ToString()), 
@@ -43,7 +43,7 @@ namespace ProductManagerApp.Client
 
         private async void buttonDelete_Click(object sender, EventArgs e)
         {
-            if (dataGridViewProducts.SelectedRows.Count != 1)
+            if (SingleItemIsNotSelected())
                 return;
 
             await _productHttpClient.DeleteProduct(Int32.Parse(dataGridViewProducts.SelectedRows[0].Cells[0].Value.ToString()));
@@ -52,7 +52,7 @@ namespace ProductManagerApp.Client
 
         private async void buttonSearch_Click(object sender, EventArgs e)
         {
-            if (textBoxPriceFrom.Text == string.Empty || textBoxPriceTo.Text == string.Empty)
+            if (PriceRangeNotEntered())
             {
                 MessageBox.Show("You must enter the price range", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -75,7 +75,7 @@ namespace ProductManagerApp.Client
 
         private void dataGridViewProducts_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (dataGridViewProducts.SelectedRows.Count != 1)
+            if (SingleItemIsNotSelected())
                 return;
 
             textBoxName.Text = dataGridViewProducts.SelectedRows[0].Cells[1].Value.ToString();
@@ -89,6 +89,15 @@ namespace ProductManagerApp.Client
 
             if (result == DialogResult.OK)
                 textBoxPhoto.Text = openFileDialogPhoto.FileName;
+        }
+
+        private bool SingleItemIsNotSelected()
+        {
+            return dataGridViewProducts.SelectedRows.Count != 1;
+        }
+        private bool PriceRangeNotEntered()
+        {
+            return textBoxPriceFrom.Text == string.Empty || textBoxPriceTo.Text == string.Empty;
         }
     }
 }
